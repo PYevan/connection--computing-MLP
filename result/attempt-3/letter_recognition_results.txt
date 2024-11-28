@@ -1,0 +1,15 @@
+Epoch 0: Error 377.74234
+Epoch 100: Error 199.11098
+Epoch 200: Error 193.15792
+Epoch 300: Error 191.48330
+Epoch 400: Error 187.99213
+Epoch 500: Error 184.63627
+Epoch 600: Error 183.16681
+Epoch 700: Error 182.56441
+Epoch 800: Error 182.28309
+Epoch 900: Error 181.66681
+Epoch 1000: Error 181.61737
+Epoch 1100: Error 181.58049
+
+Testing Letter Recognition Model:
+Accuracy: 86.55%

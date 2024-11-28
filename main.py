@@ -52,7 +52,8 @@ def letter_recognition_test():
     train_inputs, test_inputs = inputs[:16000], inputs[16000:]
     train_targets, test_targets = targets[:16000], targets[16000:]
 
-    model, results = train_mlp(train_inputs, train_targets, input_size=16, hidden_size=50, output_size=26, epochs=1000, learning_rate=0.01)
+    # 调整隐藏单元数到 100，训练轮数到 1200
+    model, results = train_mlp(train_inputs, train_targets, input_size=16, hidden_size=100, output_size=26, epochs=1200, learning_rate=0.01)
     results.append("\nTesting Letter Recognition Model:")
     correct = 0
     for x, y in zip(test_inputs, test_targets):
@@ -61,7 +62,7 @@ def letter_recognition_test():
             correct += 1
     accuracy = correct / len(test_inputs) * 100
     results.append(f"Accuracy: {accuracy:.2f}%")
-    save_results("result/attempt-2/letter_recognition_results.txt", results)
+    save_results("result/attempt-3/letter_recognition_results.txt", results)
 
 if __name__ == "__main__":
     print("Running XOR Test")
