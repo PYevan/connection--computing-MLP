@@ -2,28 +2,24 @@ import numpy as np
 import pandas as pd
 
 def generate_xor_data():
-    """
-    Generate XOR dataset.
-    """
     inputs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
     targets = np.array([[0], [1], [1], [0]])
     return inputs, targets
 
 def generate_sinusoidal_data(num_samples=500):
-    """
-    Generate sinusoidal dataset.
-    """
     inputs = np.random.uniform(-1, 1, (num_samples, 4))
     targets = np.sin(inputs[:, 0] - inputs[:, 1] + inputs[:, 2] - inputs[:, 3])
+    # Normalize targets to [0, 1]
+    targets = (targets - targets.min()) / (targets.max() - targets.min())
     return inputs, targets.reshape(-1, 1)
 
 def load_letter_recognition_data(filepath):
-    """
-    Load the UCI Letter Recognition dataset.
-    """
     data = pd.read_csv(filepath, header=None)
     inputs = data.iloc[:, 1:].values
     labels = data.iloc[:, 0].values
+
+    # Normalize inputs (standardize features)
+    inputs = (inputs - inputs.mean(axis=0)) / inputs.std(axis=0)
 
     # One-hot encode labels
     unique_labels = sorted(set(labels))

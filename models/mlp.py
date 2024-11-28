@@ -21,9 +21,6 @@ class MLP:
         return np.where(x > 0, 1, 0)
 
     def forward(self, x):
-        """
-        Forward propagation: x must be a 2D array with shape (batch_size, input_size).
-        """
         if x.ndim == 1:
             x = x[np.newaxis, :]  # Ensure x is 2D
         self.Z1 = np.dot(x, self.W1) + self.b1
@@ -33,9 +30,6 @@ class MLP:
         return self.output
 
     def backward(self, x, y, learning_rate):
-        """
-        Backward propagation: x and y must be 2D arrays with shape (batch_size, ...).
-        """
         if x.ndim == 1:
             x = x[np.newaxis, :]  # Ensure x is 2D
         if y.ndim == 1:
@@ -48,10 +42,10 @@ class MLP:
         hidden_error = np.dot(output_error, self.W2.T) * self.activation_derivative(self.Z1)
 
         # Gradients
-        dW2 = np.dot(self.A1.T, output_error)  # Shape: (hidden_size, output_size)
-        db2 = np.sum(output_error, axis=0, keepdims=True)  # Shape: (1, output_size)
-        dW1 = np.dot(x.T, hidden_error)  # Shape: (input_size, hidden_size)
-        db1 = np.sum(hidden_error, axis=0, keepdims=True)  # Shape: (1, hidden_size)
+        dW2 = np.dot(self.A1.T, output_error)
+        db2 = np.sum(output_error, axis=0, keepdims=True)
+        dW1 = np.dot(x.T, hidden_error)
+        db1 = np.sum(hidden_error, axis=0, keepdims=True)
 
         # Update weights and biases
         self.W2 -= learning_rate * dW2
