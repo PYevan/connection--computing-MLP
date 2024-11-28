@@ -52,7 +52,7 @@ def letter_recognition_test():
     train_inputs, test_inputs = inputs[:16000], inputs[16000:]
     train_targets, test_targets = targets[:16000], targets[16000:]
 
-    # 调整隐藏单元数到 100，训练轮数到 1200
+
     model, results = train_mlp(train_inputs, train_targets, input_size=16, hidden_size=100, output_size=26, epochs=1200, learning_rate=0.01)
     results.append("\nTesting Letter Recognition Model:")
     correct = 0
