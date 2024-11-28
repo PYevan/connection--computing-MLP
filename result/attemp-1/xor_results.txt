@@ -1,0 +1,16 @@
+Epoch 0: Error 1.98495
+Epoch 100: Error 1.00741
+Epoch 200: Error 1.00021
+Epoch 300: Error 0.98966
+Epoch 400: Error 0.96982
+Epoch 500: Error 0.93477
+Epoch 600: Error 0.88022
+Epoch 700: Error 0.81340
+Epoch 800: Error 0.74943
+Epoch 900: Error 0.70512
+
+Testing XOR Model:
+Input: [0 0], Predicted: [[0.37122216]], Target: [0]
+Input: [0 1], Predicted: [[0.37122216]], Target: [1]
+Input: [1 0], Predicted: [[0.90699462]], Target: [1]
+Input: [1 1], Predicted: [[0.36585496]], Target: [0]
